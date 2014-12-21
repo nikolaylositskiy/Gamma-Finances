@@ -1,0 +1,18 @@
+
+default: &default
+  adapter: postgresql
+  username: nikolay
+  password: 1q2w3456
+  host: localhost
+
+development:
+  <<: *default
+  database: gamma_finances_dev
+
+test:
+  <<: *default
+  database: gamma_finances_test
+
+production:
+  <<: *default
+  database: gamma_finances_production
