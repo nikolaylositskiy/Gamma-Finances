@@ -5,8 +5,8 @@ Gamma Finances
 3) Мгновенный ввод тех операций, которые вы осуществляете каждый день
 4) Расписание выполняемости операций
 5) Интуитивно простой и понятный интерфейс программы
-       Ссылка на heroku:
-
+       Ссылка на heroku: https://gammafinances.herokuapp.com/
+       Ссылка на файл со схемой БД: https://drive.google.com/file/d/0B1H_bm5TOIzvdk1VYUUwR0pwRTA/view?usp=sharing
 Разработчики:
 Лосицкий Николай - Team lead;
 Тимошик Сергей.
