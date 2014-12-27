@@ -6,7 +6,8 @@ Gamma Finances
 4) Расписание выполняемости операций
 5) Интуитивно простой и понятный интерфейс программы
        Ссылка на heroku: https://gammafinances.herokuapp.com/
-       Ссылка на файл со схемой БД: https://drive.google.com/file/d/0B1H_bm5TOIzvdk1VYUUwR0pwRTA/view?usp=sharing
+       Ссылка на файл со схемой БД: https://drive.google.com/open?id=0B-ZfBDN3Lo1MTE9fLWwwR2d5Vkk&authuser=0
+       
 Разработчики:
 Лосицкий Николай - Team lead;
 Тимошик Сергей.
