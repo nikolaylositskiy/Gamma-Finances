@@ -4,4 +4,3 @@ describe User do
   	expect(FactoryGirl.build(:user)).to be_valid
   end
 end
-
