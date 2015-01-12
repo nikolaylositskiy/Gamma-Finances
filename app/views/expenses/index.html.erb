@@ -1,0 +1,8 @@
+<h1>Все счета</h1>
+<ul>
+	<% @expenses.each do |e| %>
+		<li><%= link_to e.expense_name, e %></li>
+	<% end %>
+</ul>
+
+<%= will_paginate @expenses%>
