@@ -50,3 +50,4 @@ end
 
 gem 'devise'
 gem 'twitter-bootstrap-rails'
+gem 'will_paginate'
