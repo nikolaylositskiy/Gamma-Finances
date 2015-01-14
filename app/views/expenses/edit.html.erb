@@ -1,0 +1,7 @@
+<h1>Редактирование счета</h1>
+ <%= form_for @expense do |f| %>
+  <p> Имя счета <%= f.text_field :expense_name %> </p>
+  <p> Тип счета  <%= f.text_field :expense_type %></p>
+  <p> Валюта <%= f.text_field :currency %></p>
+  <%= f.submit "Обновить счет"%>
+ <%end %>
