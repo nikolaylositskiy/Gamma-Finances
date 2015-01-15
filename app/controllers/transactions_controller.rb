@@ -1,34 +1,33 @@
 class TransactionsController < ApplicationController
-  before_action  :find_transaction, only:[:show, :edit,:update, :destroy]
-    
+  
+  before_action :find_expense,   only: [:new, :create, :index]
+  before_action :find_transaction, only:[:show, :edit,:update, :destroy]
+
+
+
+
   def index 
-    @transactions = Transaction.paginate(per_page: 30, page: params[:page])
+    @transactions = @expense.transactions
   end
 
   def new
-    @transaction = Transaction.new(expense_id: params[:expense_id])
- 
+    @transaction = Transaction.new
   end
 
   def create
-    @transaction = Transaction.new(fdfdparams)
-    
-    @transaction.save
+    @transaction = @expense.transactions.new(transaction_param)
     if @transaction.save
-      redirect_to @transaction
+      redirect_to expense_transactions_path(@expense)
     else
       render "new"  
     end
   end
-  
+    
   def show
-
+      
   end
 
-  def edit
 
-  end
-  
   def update
     
     if @transaction.update(params.require(:transaction).permit(:date, :sum, :reason, :traffic))
@@ -45,13 +44,15 @@ class TransactionsController < ApplicationController
   
 private
 
+  def find_expense
+    @expense = Expense.find(params[:expense_id])
+  end
+
   def find_transaction
     @transaction = Transaction.find(params[:id])
   end
 
-
-  def fdfdparams
-    params.require(:transaction).permit([:date, :sum, :reason, :traffic, :expenses_id, expense_id: params[:expense_id]])
+ def transaction_param
+    params.require(:transaction).permit(:date, :sum, :reason, :traffic)
   end
-  
 end

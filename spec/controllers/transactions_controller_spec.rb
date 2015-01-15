@@ -21,12 +21,7 @@ RSpec.describe TransactionsController, :type => :controller do
       sign_in user
     end
 
-    describe "GET #index" do
-      it "render :index view" do
-        get :index
-        expect(response).to render_template :index
-      end
-    end
+    
 
     describe "GET #show" do
       it "assigns the requested expense to subject" do
@@ -40,29 +35,27 @@ RSpec.describe TransactionsController, :type => :controller do
       end
     end
 
-    describe "GET #new" do 
-      it "assigns the requested expense to new expense" do
-        get :new
-        expect(assigns(:transaction)).to be_new_record
-      end
-
-      it "renders the :new view" do
-        get :new
-        expect(response).to render_template :new
-      end
-    end
+   
 
     describe "POST #create" do
       context "with valid attributes" do
         it "create new object" do
           expect{
-            post :create, transaction: FactoryGirl.attributes_for(:transaction)
+            post :create, expense_id: expense.id, transaction: FactoryGirl.attributes_for(:transaction)
           }.to change(Transaction, :count).by(1)
         end
 
         it "rendirects to index path" do 
-          post :create, transaction: FactoryGirl.attributes_for(:transaction)
-          expect(response).to redirect_to ("/transactions/#{assigns(:transaction).id}") 
+          post :create, expense_id: expense.id, transaction: FactoryGirl.attributes_for(:transaction)
+          expect(response).to redirect_to expense_transactions_path(expense.id) 
+        end
+      end
+
+      context "with not valid attributes" do
+        it "not save object to  db" do
+          expect{
+            post :create, expense_id: expense.id, transaction: FactoryGirl.attributes_for(:transaction, sum: nil)
+          }.to_not change(Transaction, :count)
         end
       end
     end
