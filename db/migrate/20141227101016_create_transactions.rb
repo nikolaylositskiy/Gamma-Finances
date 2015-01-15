@@ -1,7 +1,7 @@
 class CreateTransactions < ActiveRecord::Migration
   def change
     create_table :transactions do |t|
-      t.float :date, null: false
+      t.timestamp :date
       t.float :sum, null: false
       t.string :reason, null: false
       t.belongs_to :expense, null: false

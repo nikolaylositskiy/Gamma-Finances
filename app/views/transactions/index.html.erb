@@ -1,0 +1,8 @@
+<h1>Все операции</h1>
+<ul>
+	<% @transactions.each do |e| %>
+		<li><%= link_to e.reason, e %></li>
+	<% end %>
+</ul>
+
+<%= will_paginate @transactions%>
