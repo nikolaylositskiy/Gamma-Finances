@@ -1,0 +1,8 @@
+<h1>Операции</h1>
+  <%= form_for [@expense, @transaction] do |f| %>
+    <p> Дата операции <%= f.text_field :date %> </p>
+    <p> Сумма  <%= f.text_field :sum %></p>
+    <p> Расходы <%= f.text_field :reason %></p>
+    <p> Движение по счету <%= f.text_field :traffic %></p>
+    <%= f.submit "Создать"%>
+  <%end %>

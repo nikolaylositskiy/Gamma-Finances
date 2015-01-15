@@ -17,20 +17,20 @@ ActiveRecord::Schema.define(version: 20141228210947) do
   enable_extension "plpgsql"
 
   create_table "expenses", force: true do |t|
-    t.integer  "user_id"
-    t.string   "expense_name"
-    t.string   "expense_type"
-    t.string   "currency"
+    t.integer  "user_id",      null: false
+    t.string   "expense_name", null: false
+    t.string   "expense_type", null: false
+    t.string   "currency",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "transactions", force: true do |t|
-    t.float    "date"
-    t.float    "sum"
-    t.string   "reason"
-    t.integer  "expense_id"
-    t.integer  "traffic"
+    t.datetime "date"
+    t.float    "sum",        null: false
+    t.string   "reason",     null: false
+    t.integer  "expense_id", null: false
+    t.integer  "traffic",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
