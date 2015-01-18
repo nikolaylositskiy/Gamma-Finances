@@ -1,7 +1,10 @@
 <h1>Создание нового счета</h1>
  <%= form_for @expense do |f| %>
-  <p> Имя счета <%= f.text_field :expense_name %> </p>
-  <p> Тип счета  <%= f.text_field :expense_type %></p>
-  <p> Валюта <%= f.text_field :currency %></p>
+  <p> Имя счета </p>
+  <p><%= f.text_field :expense_name %> </p>
+  <p> Тип счета </p>
+  <p> <%= f.text_field :expense_type %></p>
+  <p> Валюта </p>
+  <p><%= f.text_field :currency %></p>
   <%= f.submit "Создать счет"%>
  <%end %>

@@ -1,8 +1,21 @@
 <h1>Операции</h1>
+<% if @transaction.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+    <ul>
+    <% @transaction.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
  <%= form_for @transaction do |f| %>
-	<p> Дата операции	<%= f.data_field :date %> </p>
-	<p> Сумма  <%= f.money_field :sum %></p>
-	<p> Расходы <%= f.text_field :reason %></p>
-	<p> Движение по счету <%= f.integer_field :trafic %></p>
+    <p> Дата операции <%= f.datetime_select :date %>     </p>
+    <p> Сумма  </p>
+    <p><%= f.text_field :sum %></p>
+    <p> Расходы </p>
+    <p><%= f.text_field :reason %></p>
+    <p> Движение по счету</p>
+    <p> <%= f.text_field :traffic %></p>
 	<%= f.submit "Обновить"%>
  <%end %>
