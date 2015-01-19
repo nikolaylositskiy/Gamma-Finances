@@ -3,3 +3,5 @@
 <p>Email: <%= @expense.user_id %></p>
 <p>Тип счета: <%= @expense.expense_type %></p>
 <p>Валюта: <%= @expense.currency %></p>
+<p><%= link_to "Cоздать операцию", new_expense_transaction_path(@expense) %></p>
+<p><%= link_to "Просмотреть все операции", expense_transactions_path(@expense) %></p>
