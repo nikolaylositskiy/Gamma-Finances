@@ -1,12 +1,12 @@
 class TransactionsController < ApplicationController
-  
+
   before_action :find_expense,   only: [:new, :create, :index]
   before_action :find_transaction, only:[:show, :edit,:update, :destroy]
 
 
 
 
-  def index 
+  def index
     @transactions = @expense.transactions
   end
 
@@ -19,18 +19,18 @@ class TransactionsController < ApplicationController
     if @transaction.save
       redirect_to expense_transactions_path(@expense)
     else
-      render "new"  
+      render "new"
     end
   end
-    
+
   def show
-      
+
   end
 
 
   def update
-    
-    if @transaction.update(params.require(:transaction).permit(:date, :sum, :reason, :traffic))
+
+    if @transaction.update(transaction_param)
       redirect_to @transaction
     else
       render "edit"
@@ -41,7 +41,7 @@ class TransactionsController < ApplicationController
     @transaction.destroy
     redirect_to transactions_path
   end
-  
+
 private
 
   def find_expense
@@ -52,7 +52,7 @@ private
     @transaction = Transaction.find(params[:id])
   end
 
- def transaction_param
+  def transaction_param
     params.require(:transaction).permit(:date, :sum, :reason, :traffic)
   end
 end
